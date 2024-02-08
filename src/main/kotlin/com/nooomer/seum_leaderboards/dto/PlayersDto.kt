@@ -2,10 +2,14 @@ package com.nooomer.seum_leaderboards.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import java.io.Serial
 
 
+/**
+ * DTO for {@link com.nooomer.seum_leaderboards.db.models.Players}
+ */
 @Serializable
-data class Players(
+data class PlayersDto(
     @SerialName("steamid") var steamid: String? = null,
     @SerialName("communityvisibilitystate") var communityvisibilitystate: Int? = null,
     @SerialName("profilestate") var profilestate: Int? = null,
@@ -23,4 +27,13 @@ data class Players(
     @SerialName("loccountrycode") var loccountrycode: String? = null,
     @SerialName("locstatecode") var locstatecode: String? = null,
     @SerialName("loccityid") var loccityid: Int? = null,
+    @SerialName("lastlogoff") var lastlogoff: Int? = null,
+    @SerialName("commentpermission") var commentpermission: Int? = null,
+    @SerialName("gameid") var gameid: String? = null,
+    @SerialName("gameserverip") var gameserverip: String? = null,
+    @SerialName("gameextrainfo") var gameextrainfo: String? = null,
+    @SerialName("cityid") var cityid: String? = null,
+    @SerialName("gameserversteamid") var gameserversteamid: String? = null,
+    @SerialName("lobbysteamid") var lobbysteamid: String? = null,
+
 )

@@ -1,7 +1,6 @@
 package com.nooomer.seum_leaderboards.controllers
 
-import com.nooomer.seum_leaderboards.dto.Players
-import com.nooomer.seum_leaderboards.dto.SteamProfileDto
+import com.nooomer.seum_leaderboards.dto.PlayersDto
 import com.nooomer.seum_leaderboards.services.SteamServise
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,12 +14,16 @@ class SteamProfileController(
     var steamServise: SteamServise
 ) {
     @GetMapping("/getProfile/{id}")
-    fun getProfile(@PathVariable id: String): ResponseEntity<ArrayList<Players>> {
+    fun getProfile(@PathVariable id: String): ResponseEntity<ArrayList<PlayersDto>> {
         return ResponseEntity.ok(steamServise.getPLayerInfoById(id.toLong()))
     }
 
     @GetMapping("/getAllPLayers")
     fun getAllPlayers(): ResponseEntity<Unit> {
         return ResponseEntity.ok(steamServise.getAllPlayers())
+    }
+    @GetMapping("/updateInfo")
+    fun updateUserInfo(): ResponseEntity<Unit> {
+        return ResponseEntity.ok(steamServise.getSteamUserInfo())
     }
 }

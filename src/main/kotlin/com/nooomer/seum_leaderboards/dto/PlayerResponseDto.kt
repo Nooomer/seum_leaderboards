@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PlayerResponse(
+data class PlayerResponseDto(
     @SerialName("players")
-    var players: ArrayList<Players> = arrayListOf()
+    var players: ArrayList<PlayersDto> = arrayListOf()
 )

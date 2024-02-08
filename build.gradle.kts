@@ -30,6 +30,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.15.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    api(project(":points"))
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("org.springframework.boot:spring-boot-starter-test")

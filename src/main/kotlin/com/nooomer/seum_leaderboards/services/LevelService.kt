@@ -36,14 +36,27 @@ class LevelService(
         val module = JacksonXmlModule()
         module.setDefaultUseWrapper(false)
         val xmlMapper = XmlMapper(module)
-        return xmlMapper.readValue(requestLevelLeaderboards(url), LevelLeaderboardsResponse::class.java)
+        val xmlString = requestLevelLeaderboards(url)
+        return if(xmlString != ""){
+            xmlMapper.readValue(requestLevelLeaderboards(url), LevelLeaderboardsResponse::class.java)
+        }
+        else{
+            null
+        }
     }
     private fun requestLevelLeaderboards(url: String): String? {
         val restTemplate = RestTemplate()
-        return restTemplate.getForEntity(
+        return with(restTemplate.getForEntity(
             "$url&end=200",
             String::class.java
-        ).body
+        )){
+            if(statusCode.isError){
+                ""
+            }
+            else{
+                body
+            }
+        }
     }
 
     private fun getXmlAsString(): String? {

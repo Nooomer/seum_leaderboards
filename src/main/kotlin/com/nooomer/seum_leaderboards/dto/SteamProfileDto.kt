@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SteamProfileDto (
-  @SerialName("response" ) var PLayerResponse : PlayerResponse? = PlayerResponse()
+  @SerialName("response" ) var PLayerResponseDto : PlayerResponseDto? = PlayerResponseDto()
 )
